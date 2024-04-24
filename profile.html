@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Bootstrap CSS CDN Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS for profile image -->
+    <style>
+           body {
+       
+            background-color:#FFD54F;
+         
+        }
+            /* Define the keyframes for the zoom effect */
+            @keyframes zoomIn {
+        0% {
+        transform: scale(1);
+        }
+        50% {
+        transform: scale(1.1);
+        }
+        100% {
+        transform: scale(1);
+        }
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        /* Navbar styling */
+ .navbar {
+        background-color: #dba212 /* Change to your desired background color */
+        }
+        .navbar-brand img {
+        border-radius: 6%;
+        padding-left: 9%;
+        }
+
+        /* Dropdown styling */
+        .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        }
+        .navbar-nav .nav-item {
+            padding: 15px; /* Adjust the padding as needed */
+            transition: transform 0.2s; /* Add transition for smoother animation */
+        }
+        /* Hide sections initially */
+       
+        /* Style for the search input field */
+        .input-group .form-control {
+            border-radius: 0; /* Remove rounded corners */
+            border-right: none; /* Remove right border */
+        }
+
+        /* Style for the search icon button */
+        .input-group .btn {
+            border-radius: 0; /* Remove rounded corners */
+            background-color: #f0eaea; /* Match the background color */
+            margin: auto;
+        }
+         /* Footer styles */
+         footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            color: #f0c60a; /* Hover color */
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            font-size: 24px;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer .social-icons a:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        /* Additional features */
+        .address,
+        .phone,
+        .email {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            footer .social-icons a {
+                font-size: 20px;
+            }
+
+            footer a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-yellow" style="background-color: #ffcc00;">
+        <a class="navbar-brand" href="#">
+            <img src="logo.jpg" alt="Your Logo" width="100" height="100" class="rounded-3" style="margin-left: 5%; padding: 5%;">
+        </a>
+        
+        <div class="container;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #dba212; padding-right: 0%;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i>Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="nearbyees.html">Nearby</a></li>
+                            <li><a class="dropdown-item" href="popular.html">Popular</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-tags me-2"></i> Offers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" href="offers.html">Discounts & Combo Offers</a></li> <!-- Fixed typo here -->
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-info-circle me-2"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html"><i class="fas fa-book-open me-2"></i> Our Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-star me-2"></i> Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-phone me-2"></i> Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i> Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <li><a class="dropdown-item" href="profile.html">View Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="background-color: #f0eaea;">
+                            <div class="input-group-append" style="background-color: #f0eaea;">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header" style="background-color: blue; color: #fff;">
+                        User Profile
+                    </div>
+                    <div class="card-body" id="profile-info">
+                        <div class="d-flex flex-column align-items-center">
+                            <img id="profile-image" src="profile-image.jpg" alt="Profile Image" class="profile-image">
+                            <h5 class="card-title mt-3" id="name-display">John Doe</h5>
+                            <p class="card-text" id="email-display">Email: john@example.com</p>
+                            <p class="card-text" id="phone-display">Phone: (123) 456-7890</p>
+                            <p class="card-text" id="address-display">Address: 123 Main St, City</p>
+                            <button class="btn btn-primary" onclick="toggleEditForm()">Edit Profile</button>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="edit-form" style="display: none;">
+                        <h5>Edit Profile</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name-input" class="form-label">Name</label>
+                                <input type="text" id="name-input" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email-input" class="form-label">Email</label>
+                                <input type="email" id="email-input" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone-input" class="form-label">Phone</label>
+                                <input type="tel" id="phone-input" class="form-control" placeholder="Phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="address-input" class="form-label">Address</label>
+                                <input type="text" id="address-input" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="mb-3">
+                                <label for="profile-image-input" class="form-label">Profile Image</label>
+                                <input type="file" id="profile-image-input" class="form-control" accept="image/*">
+                            </div>
+                            <button class="btn btn-primary" onclick="saveProfile()">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function toggleEditForm() {
+        const profileInfo = document.getElementById('profile-info');
+        const editForm = document.getElementById('edit-form');
+        profileInfo.style.display = profileInfo.style.display === 'none' ? 'block' : 'none';
+        editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+
+        // Populate the edit form fields with current profile information
+        if (editForm.style.display === 'block') {
+            const nameDisplay = document.getElementById('name-display').innerText;
+            const emailDisplay = document.getElementById('email-display').innerText;
+            const phoneDisplay = document.getElementById('phone-display').innerText;
+            const addressDisplay = document.getElementById('address-display').innerText;
+
+            document.getElementById('name-input').value = nameDisplay;
+            document.getElementById('email-input').value = emailDisplay;
+            document.getElementById('phone-input').value = phoneDisplay;
+            document.getElementById('address-input').value = addressDisplay;
+        }
+    }
+function saveProfile() {
+    const nameInput = document.getElementById('name-input').value;
+    const emailInput = document.getElementById('email-input').value;
+    const phoneInput = document.getElementById('phone-input').value;
+    const addressInput = document.getElementById('address-input').value;
+    const profileImageInput = document.getElementById('profile-image-input');
+
+    // Update profile information in the profile display
+    document.getElementById('name-display').innerText = nameInput;
+    document.getElementById('email-display').innerText = 'Email: ' + emailInput;
+    document.getElementById('phone-display').innerText = 'Phone: ' + phoneInput;
+    document.getElementById('address-display').innerText = 'Address: ' + addressInput;
+
+    // Check if a new profile image is selected
+    if (profileImageInput.files.length > 0) {
+        const profileImage = profileImageInput.files[0];
+        const reader = new FileReader();
+
+        // Read the selected profile image as a data URL
+        reader.readAsDataURL(profileImage);
+
+        // Set the profile image source once the reader is done
+        reader.onload = function () {
+            document.getElementById('profile-image').src = reader.result;
+        };
+    }
+
+    // You can send this data to your server for processing or update it locally as needed
+
+    // After saving, toggle back to the profile view
+    toggleEditForm();
+}
+
+</script>
+    <script>
+        $(document).ready(function() {
+            // Toggle the navigation when the toggle icon is clicked
+            $('.navbar-toggler').click(function() {
+                $('#navbarNav').toggleClass('show');
+            });
+    
+            // Add smooth scrolling to anchor links
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000); // You can adjust the duration (in milliseconds) to control the scroll speed
+                }
+            });
+        });
+    
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        // Function to handle animations
+        function animateSections() {
+            const sections = document.querySelectorAll('.my-5');
+    
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    section.style.opacity = 1;
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+    
+        // Add an event listener for scroll
+        window.addEventListener('scroll', animateSections);
+    
+        // Initial call to animate sections when the page loads
+        animateSections();
+    </script>
+    <footer class="bg-dark text-white py-4">
+        <div class="container" style="background-color:  #dba212; border-radius: 5%;">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>About Us</h4>
+                    <p>Welcome to HeritageHub</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contact Information</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                        <li><i class="fas fa-phone"></i> 9791234293</li>
+                        <li><i class="fas fa-envelope"></i> info@heritagehub.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Connect with Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="fab fa-facebook" style="color: rgb(0, 51, 255);"></a>
+                        <a href="#" class="fab fa-instagram" style="color: rgb(255, 30, 0);"></a>
+                        <a href="#" class="fab fa-linkedin" style="color: rgb(0, 123, 255);"></a>
+                        <a href="#" class="fab fa-pinterest" style="color: rgb(255, 0, 0);"></a>
+                        <!-- Add more social icons as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

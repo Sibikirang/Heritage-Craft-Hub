@@ -1,0 +1,89 @@
+
+body {
+    background-color: #f7f7f7;
+}
+.confirmation-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+  /* Navbar styling */
+  .navbar {
+background-color: #dba212 /* Change to your desired background color */
+}
+.navbar-brand img {
+border-radius: 6%;
+padding-left: 9%;
+}
+
+/* Dropdown styling */
+.nav-item.dropdown:hover .dropdown-menu {
+display: block;
+}
+.navbar-nav .nav-item {
+    padding: 15px; /* Adjust the padding as needed */
+    transition: transform 0.2s; /* Add transition for smoother animation */
+}
+
+/* Style for the search input field */
+
+/* Style for the search icon button */
+.input-group .btn {
+    border-radius: 0; /* Remove rounded corners */
+    background-color: #f0eaea; /* Match the background color */
+    margin: auto;
+}
+
+ /* Footer styles */
+ footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+footer a:hover {
+    color: #f0c60a; /* Hover color */
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .social-icons a {
+    font-size: 24px;
+}
+
+footer .social-icons a:hover {
+    transform: scale(1.2);
+}
+
+footer .social-icons a:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* Additional features */
+.address,
+.phone,
+.email {
+    margin-bottom: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    footer .social-icons a {
+        font-size: 20px;
+    }
+
+    footer a {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeritageCraft Hub</title>
+    <!-- Link to Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+        header {
+            background-image: url(https://img.freepik.com/free-photo/close-up-hand-making-heart-garland-with-spool-wrapped-gift-box-white-desk_23-2148137405.jpg?w=1380&t=st=1711600295~exp=1711600895~hmac=36d2e724a8e370740af1bafdcb92be0d64f556ed7a8e094f40f47b8317f4e185);
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        body {
+        overflow-x: hidden; /* This hides the horizontal scrollbar */
+        }
+        /* Define the keyframes for the zoom effect */
+        @keyframes zoomIn {
+        0% {
+        transform: scale(1);
+        }
+        50% {
+        transform: scale(1.1);
+        }
+        100% {
+        transform: scale(1);
+        }
+        }
+        /* Apply the animation and shadow to the logo */
+        .navbar-brand img {
+        animation: zoomIn 2s infinite;
+        /* You can adjust the duration, iteration count, and other properties */
+        transition: box-shadow 0.3s ease-in-out;
+        }
+        .navbar-brand img:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+        }
+        .head,body{
+        font-family:Georgia, 'Times New Roman', Times, serif; font-style: italic;font-weight: bold; 
+        }
+
+        .custom-background{
+       background-color: #dba212;
+        }
+        /* CSS for Testimonials Hover Effect */
+        .testimonial-section .testimonial-card {
+         position: relative;
+        transition: transform 0.3s;
+        }
+
+        .testimonial-section .testimonial-card:hover {
+         transform: scale(1.05); /* Increase the card size on hover */
+         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add a shadow on hover */
+        }
+     
+
+        h1 {
+            color: #f5f5f5;
+            font-size: 3em;
+            margin: 20px 0;
+            animation: slideInDown 1s both;
+        }
+
+        p {
+            color: #f5f5f5;
+            font-size: 1.5em;
+            margin: 20px 0;
+            animation: fadeIn 2s both;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+            font-size: 1.2em;
+            margin-top: 20px;
+            animation: fadeIn 2s both;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #eee;
+        }
+
+        /* Additional feature styles */
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 2s both;
+        }
+
+        .col-md-4 {
+            text-align: center;
+            animation: slideIn 1s both;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Basic styles for the container */
+        .container {
+            background-color: #f0c60aca;
+            border-radius: 4%;
+            color: white;
+            padding: 10px;
+        }
+
+        /* Section titles */
+        h2 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: #f5f5f5;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 2px;
+            background-color: #f5f5f5;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Paragraphs */
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        /* Testimonials */
+        .testimonial-section {
+            background-color: #b0b0b0ca;
+        }
+        .card {
+            background-color: transparent;
+            border: none;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            margin-bottom: 30px;
+        }
+        .card:hover {
+            transform: scale(1.09);
+            background-color: rgba(240, 198, 12, 0.5);
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .card-text {
+            font-size: 1.2em;
+            color: #222;
+        }
+        /* Contact Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Form button */
+        .btn-primary {
+            background-color: #aca99bca;
+            border-color: #bab7a5ca;
+        }
+
+        .btn-primary:hover {
+            background-color: #aca68f;
+        }
+      /* Footer styles */
+      footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            color: #c3c1b6; /* Hover color */
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            font-size: 24px;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer .social-icons a:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        /* Additional features */
+        .address,
+        .phone,
+        .email {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            footer .social-icons a {
+                font-size: 20px;
+            }
+
+            footer a {
+                font-size: 16px;
+            }
+        }
+        /* Navbar styling */
+        .navbar {
+        background-color: #c4c0b6 /* Change to your desired background color */
+        }
+        .navbar-brand img {
+        border-radius: 6%;
+        padding-left: 9%;
+        }
+
+        /* Dropdown styling */
+        .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        }
+        .navbar-nav .nav-item {
+            padding: 15px; /* Adjust the padding as needed */
+            transition: transform 0.2s; /* Add transition for smoother animation */
+        }
+        /* Hide sections initially */
+        .my-5 {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        /* Style for the search input field */
+        .input-group .form-control {
+            border-radius: 0; /* Remove rounded corners */
+            border-right: none; /* Remove right border */
+        }
+
+        /* Style for the search icon button */
+        .input-group .btn {
+            border-radius: 0; /* Remove rounded corners */
+            background-color: #f0eaea; /* Match the background color */
+            margin: auto;
+        }
+
+
+</style>
+</head>
+
+<body class="custom-background">
+    <nav class="navbar navbar-expand-lg navbar-light bg-yellow" style="background-color: #ffffff;">
+        <a class="navbar-brand" href="#">
+            <img src="logo.jpg" alt="Your Logo" width="100" height="100" class="rounded-3" style="margin-left: 5%; padding: 5%;">
+        </a>
+        <div class="container;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #d14826; padding-right: 0%;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="nearbyees.html">Nearby</a></li>
+                            <li><a class="dropdown-item" href="popular.html">Popular</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-tags me-2"></i> Offers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" href="offers.html">Discounts & Combo Offers</a></li> <!-- Fixed typo here -->
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="ig.html"><i class="fas fa-info-circle me-2"></i> AI Generator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html"><i class="fas fa-book-open me-2"></i> Our Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#specials"><i class="fas fa-star me-2"></i> Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-us-section"><i class="fas fa-phone me-2"></i> Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i> Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <li><a class="dropdown-item" href="profile.html">View Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="background-color: #f0eaea;">
+                            <div class="input-group-append" style="background-color: #f0eaea;">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <!-- Link to Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+    <!-- Header Section with Background Image -->
+<header class="text-white text-center py-5">
+    <h1 style="color: #030000;">Welcome to HeritageCraft Hub</h1>
+    <p style="color: #030000;">Your favorite crafts to your doorstep</p>
+    <a href="menu.html" class="btn btn-light btn-lg">View Menu</a>
+    <!-- Additional Features -->
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <i class="fas fa-utensils fa-3x" style="color:green"></i>
+            <h3 style="color:green"></h3>
+            <p style="color:green"></p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-heart fa-3x" style="color:red;"></i>
+            <h3 style="color:red;"></h3>
+            <p  style="color:red;"></p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-clock fa-3x" style="color:rgb(42, 112, 165)"></i>
+            <h3 style="color:rgb(42, 112, 165)"></h3>
+            <p style="color:rgb(42, 112, 165)"></p>
+        </div>
+    </div>
+</header>
+
+<div class="container my-"  style="background-color: #cab492ca; border-radius: 4%; color: white;">
+    
+    <!-- Specials Section -->
+<section class="container my-5" id="specials">
+    <h2>Specials</h2>
+    <p>Check out our latest specials and offers:</p>
+    <ul>
+        <li><strong>Today's Special:</strong> Enjoy a 20% discount on our special products.</li>
+        <li><strong>Weekend Deals:</strong> Every weekend, get 30% with your order.</li>
+        <li><strong>Happy Hour:</strong> Join us for happy hour from 4 PM to 6 PM and get 50% off on selected products.</li>
+    </ul>
+</section>
+    <div id="contact-us-section" class="container my-5"></div>
+    <!-- Contact Section -->
+    <section class="container my-5">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to contact us.</p>
+        <form action="process_contact_form.php" method="post" id="contactForm">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        
+    </section>
+</div>
+</div>
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Your JavaScript for form -->
+<script>
+$(document).ready(function(){
+    $('#contactForm').submit(function(e){
+        e.preventDefault();
+        var formData = $(this).serialize();
+        
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: formData,
+            success: function(response) {
+                // Check the response from the PHP script
+                if (response.trim() === 'Message sent successfully!') {
+                    // Display success message as a popup
+                    alert("Message sent successfully!");
+                    // You can use more stylish modal/popup libraries here
+                } else {
+                    // If there's an error, you can handle it accordingly
+                    alert("An error occurred: " + response);
+                }
+            }
+        });
+    });
+});
+</script>
+
+   <!-- Footer styling -->
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>About Us</h4>
+                <p>Welcome to Heritage Craft, where timeless traditions meet contemporary craftsmanship. Our curated collection celebrates the artistry and skill of artisans from around the world, offering a diverse range of handcrafted treasures that tell stories of culture, heritage, and creativity.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact Information</h4>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                    <li><i class="fas fa-phone"></i> 9791234293</li>
+                    <li><i class="fas fa-envelope"></i> info@heritagehub.com</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Connect with Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="fab fa-facebook" style="color: rgb(0, 51, 255);"></a>
+                    <a href="#" class="fab fa-instagram" style="color: rgb(255, 30, 0);"></a>
+                    <a href="#" class="fab fa-linkedin" style="color: rgb(0, 123, 255);"></a>
+                    <a href="#" class="fab fa-pinterest" style="color: rgb(255, 0, 0);"></a>
+                    <!-- Add more social icons as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Add Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+    // Function to check if an element is in the viewport
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+// Function to handle animations
+function animateSections() {
+    const sections = document.querySelectorAll('.my-5');
+
+    sections.forEach((section) => {
+        if (isInViewport(section)) {
+            section.style.opacity = 1;
+            section.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// Add an event listener for scroll
+window.addEventListener('scroll', animateSections);
+// Initial call to animate sections when the page loads
+animateSections();
+</script>  
+<script>
+    // Add an event listener for scroll
+    window.addEventListener('scroll', animateSections);
+    // Initial call to animate sections when the page loads
+    animateSections();
+</script>
+<script>
+    $(document).ready(function() {
+        // Toggle the navigation when the toggle icon is clicked
+        $('.navbar-toggler').click(function() {
+            $('#navbarNav').toggleClass('show');
+        });
+    });
+</script>  
+</div>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Settings - Food@Ease</title>
+    <!-- Include CSS links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#FFD54F;
+            color: #333;
+        }
+
+        .container {
+            padding: 30px 15px;
+        }
+
+      
+        .card {
+            background-color: #fff;
+            transition: all 0.2s ease-in-out; /* Slower transition */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #BA0C2E;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #FFD54F;
+        }
+        /* nav */
+        .navbar {
+            background-color: #dba212;
+        }
+
+        .navbar-brand img {
+            border-radius: 6%;
+            padding-left: 9%;
+        }
+
+        .nav-item {
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+            
+            /* Style for the profile dropdown */
+            .dropdown {
+               position: relative;
+               display: inline-block;
+           }
+   
+           .dropdown-content {
+               display: none;
+               position: absolute;
+               background-color: #c58a0bb8; /* Dropdown background color */
+               min-width: 160px;
+               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+               z-index: 1;
+               border-radius: 20%;
+           }
+   
+           .dropdown:hover .dropdown-content {
+               display: block;
+           }
+   
+           .dropdown-content a {
+               color: #fff; /* Dropdown link color */
+               padding: 12px 16px;
+               text-decoration: none;
+               display: block;
+               border-radius: 40%;
+           }
+   
+           .dropdown-content a:hover {
+               background-color: #a49e8ae7; /* Dropdown link background color on hover */
+               color: #0fcfcc;
+           }
+   
+           /* Style for the secondary dropdown */
+           .sub-dropdown {
+               position: relative;
+               display: inline-block;
+           }
+   
+           .sub-dropdown-content {
+               display: none;
+               position: absolute;
+               background-color: #c58a0bb8; /* Dropdown background color */
+               min-width: 160px;
+               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+               z-index: 1;
+               top: 0;
+               right: 100%;
+               border-radius: 23%;
+           }
+   
+           .sub-dropdown:hover .sub-dropdown-content {
+               display: block;
+           }
+           /* Define the keyframes for the zoom effect */
+   @keyframes zoomIn {
+       0% {
+           transform: scale(1);
+       }
+       50% {
+           transform: scale(1.1);
+       }
+       100% {
+           transform: scale(1);
+       }
+   }
+   
+   /* Apply the animation and shadow to the logo */
+   .navbar-brand img {
+       animation: zoomIn 2s infinite;
+       /* You can adjust the duration, iteration count, and other properties */
+       transition: box-shadow 0.3s ease-in-out;
+   }
+   .navbar-brand img:hover {
+       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+   }
+     .custom-background{
+       background-color: #dba212;
+     }
+   
+        /* Your existing CSS styles for menu.html */
+   
+   /* Make menu cards responsive */
+   .card {
+       margin: 10px;
+       padding: 10px;
+   }    
+            /* Navbar styling */
+            .navbar {
+           background-color: #dba212 /* Change to your desired background color */
+           }
+           .navbar-brand img {
+           border-radius: 6%;
+           padding-left: 9%;
+           }
+   
+           /* Dropdown styling */
+           .nav-item.dropdown:hover .dropdown-menu {
+           display: block;
+           }
+           .navbar-nav .nav-item {
+               padding: 15px; /* Adjust the padding as needed */
+               transition: transform 0.2s; /* Add transition for smoother animation */
+           }
+        
+         
+        .input-group .btn {
+            border-radius: 0;
+            background-color: #f0eaea;
+            margin: auto;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            color: #f0c60a;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            font-size: 24px;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer .social-icons a:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .address,
+        .phone,
+        .email {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            footer .social-icons a {
+                font-size: 20px;
+            }
+
+            footer a {
+                font-size: 16px;
+            }
+        }
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #FFD54F;
+    color: #333;
+}
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-yellow" style="background-color: #b5b5b5;">
+        <a class="navbar-brand" href="#">
+            <img src="logo.jpg" alt="Your Logo" width="100" height="100" class="rounded-3" style="margin-left: 5%; padding: 5%;">
+        </a>
+        
+        <div class="container;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #cb4733e6; padding-right: 0%;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i>Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="nearbyees.html">Nearby</a></li>
+                            <li><a class="dropdown-item" href="popular.html">Popular</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-tags me-2"></i> Offers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" href="offers.html">Discounts & Combo Offers</a></li> <!-- Fixed typo here -->
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-info-circle me-2"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html"><i class="fas fa-book-open me-2"></i> Our Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-star me-2"></i> Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-phone me-2"></i> Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i> Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <li><a class="dropdown-item" href="profile.html">View Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="background-color: #f0eaea;">
+                            <div class="input-group-append" style="background-color: #f0eaea;">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">Delivery Settings</h1>
+
+        <div class="card">
+            <h3>Notification Settings</h3>
+            <form>
+                <div class="form-group">
+                    <label for="emailNotifications">Email Notifications:</label>
+                    <select class="form-control" id="emailNotifications">
+                        <option value="1">Receive Email Notifications</option>
+                        <option value="0">Do Not Receive Email Notifications</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="textNotifications">Text Message Notifications:</label>
+                    <select class="form-control" id="textNotifications">
+                        <option value="1">Receive Text Notifications</option>
+                        <option value="0">Do Not Receive Text Notifications</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pushNotifications">Push Notifications:</label>
+                    <select class="form-control" id="pushNotifications">
+                        <option value="1">Receive Push Notifications</option>
+                        <option value="0">Do Not Receive Push Notifications</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsletterSubscriptions">Newsletter Subscriptions:</label>
+                    <select class="form-control" id="newsletterSubscriptions">
+                        <option value="1">Subscribe to Newsletters</option>
+                        <option value="0">Unsubscribe from Newsletters</option>
+                    </select>
+                </div>
+
+              
+        </div>
+        
+
+        <div class="card">
+            <h3>Delivery Preferences</h3>
+            <form>
+                <div class="form-group">
+                    <label for="preferredDeliveryTime">Preferred Delivery Time:</label>
+                    <input type="time" class="form-control" id="preferredDeliveryTime">
+                </div>
+
+                <div class="form-group">
+                    <label for="deliveryInstructions">Delivery Instructions:</label>
+                    <textarea class="form-control" id="deliveryInstructions" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="allergies">Allergies (if any):</label>
+                    <input type="text" class="form-control" id="allergies">
+                </div>
+
+                <div class="form-group">
+                    <label for="dietaryPreferences">Dietary Preferences:</label>
+                    <select class="form-control" id="dietaryPreferences">
+                        <option value="none">No Specific Preference</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="glutenFree">Gluten-free</option>
+                        <option value="dairyFree">Dairy-free</option>
+                        <option value="other">Other (Specify in Instructions)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Delivery Preferences</button>
+            </form>
+        </div>
+
+    <!-- Payment Settings -->
+    <div class="card">
+        <h3>Payment Settings</h3>
+        <form>
+            <div class="form-group">
+                <label for="preferredPaymentMethod">Preferred Payment Method:</label>
+                <select class="form-control" id="preferredPaymentMethod">
+                    <option value="creditCard">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="other">Other (Specify in Instructions)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="autoPayment">Auto Payment:</label>
+                <select class="form-control" id="autoPayment">
+                    <option value="enable">Enable Auto Payment</option>
+                    <option value="disable">Disable Auto Payment</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Payment Settings</button>
+        </form>
+    </div>
+
+            <!-- Delivery Service Settings -->
+            <div class="card">
+                <h3>Delivery Service</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="deliveryTracking">Delivery Tracking:</label>
+                        <select class="form-control" id="deliveryTracking">
+                            <option value="enable">Enable Order Tracking</option>
+                            <option value="disable">Disable Order Tracking</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="deliveryCharges">Delivery Charges:</label>
+                        <button type="button" class="btn btn-link">Manage Delivery Fees</button>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="deliverySchedule">Delivery Schedule:</label>
+                        <button type="button" class="btn btn-link">Set Preferred Delivery Schedule</button>
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary">Save Delivery Service Settings</button>
+                </form>
+            </div>
+
+             <!-- Communication Preferences -->
+        <div class="card">
+            <h3>Communication Preferences</h3>
+            <form>
+                <div class="form-group">
+                    <label for="languagePreferences">Language Preferences:</label>
+                    <select class="form-control" id="languagePreferences">
+                        <option value="english">English</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="french">French</option>
+                        <option value="german">German</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedbackAndRatings">Feedback and Ratings:</label>
+                    <select class="form-control" id="feedbackAndRatings">
+                        <option value="visible">Show Feedback and Ratings</option>
+                        <option value="hidden">Hide Feedback and Ratings</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="marketingCommunication">Marketing Communication:</label>
+                    <select class="form-control" id="marketingCommunication">
+                        <option value="optIn">Opt-in for Promotional Communication</option>
+                        <option value="optOut">Opt-out from Promotional Communication</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Communication Preferences</button>
+            </form>
+        </div>
+
+        <!-- Accessibility Settings -->
+        <div class="card">
+            <h3>Accessibility Settings</h3>
+            <form>
+                <div class="form-group">
+                    <label for="textSizeContrast">Text Size and Contrast:</label>
+                    <button type="button" class="btn btn-link">Adjust Text Size and Contrast</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="voiceNavigation">Voice Navigation:</label>
+                    <select class="form-control" id="voiceNavigation">
+                        <option value="enable">Enable Voice Commands</option>
+                        <option value="disable">Disable Voice Commands</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="colorThemes">Color Themes:</label>
+                 <select class="form-control" id="colorThemes" onclick="changeTheme()">
+    <option value="default">Default Theme</option>
+    <option value="light">Light Theme</option>
+    <option value="dark">Dark Theme</option>
+    <option value="custom">Custom Theme</option>
+</select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Accessibility Settings</button>
+            </form>
+        </div>
+    </div>
+</div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer class="bg-dark text-white py-4">
+        <div class="container" style="background-color: #dba212; border-radius: 3%;">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>About Us</h4>
+                    <p>Welcome to Heritage Craft, where timeless traditions meet contemporary craftsmanship. Our curated collection celebrates the artistry and skill of artisans from around the world, offering a diverse range of handcrafted treasures that tell stories of culture, heritage, and creativity.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contact Information</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                        <li><i class="fas fa-phone"></i> 9791234293</li>
+                        <li><i class="fas fa-envelope"></i> info@heritagehub.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Connect with Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="fab fa-facebook" style="color: rgb(0, 51, 255);"></a>
+                        <a href="#" class="fab fa-instagram" style="color: rgb(255, 30, 0);"></a>
+                        <a href="#" class="fab fa-linkedin" style="color: rgb(0, 123, 255);"></a>
+                        <a href="#" class="fab fa-pinterest" style="color: rgb(255, 0, 0);"></a>
+                        <!-- Add more social icons as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function changeTheme() {
+    var theme = document.getElementById("colorThemes").value;
+
+    if (theme === "light") {
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+    } else if (theme === "dark") {
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+    } else if (theme === "custom") {
+        // Add custom theme styles here
+    } else {
+        // Default theme
+        document.body.style.backgroundColor = "transparent";
+        document.body.style.color = "black";
+    }
+}
+    </script>
+</body>
+
+</html>

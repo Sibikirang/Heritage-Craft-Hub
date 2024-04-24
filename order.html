@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+</head>
+<body>
+      <!-- Custom CSS -->
+      <style>
+        
+    body {
+       
+            background-color:#d0cec9;
+         
+        }
+        /* Customize the navbar toggler icon */
+        .navbar-toggler-icon::before {
+              
+               font-size: 24px;
+           }
+   
+           /* Professional styling for the navigation links */
+           .navbar-custom .navbar-nav .nav-item {
+               margin: 0 10px;
+           }
+   
+           .navbar-custom .navbar-nav .nav-link {
+               color: #FFF;
+           }
+   
+           .navbar-custom .navbar-nav .nav-link:hover {
+               color: #0fcfcc;
+           }
+   
+           /* Style the collapsed navigation when toggle icon is clicked */
+           .navbar-custom .navbar-toggler {
+               background-color: #8a8577ee;
+           }
+   
+           .navbar-custom .navbar-toggler:focus {
+               outline: none;
+           }
+   
+           .navbar-custom .navbar-collapse {
+               background-color: #eacc0bee;
+           }
+       /* Custom CSS for your navigation bar */
+       .navbar-custom {
+           background-color: #c3991ae7; /* Change to your desired background color */
+       }
+   
+       .navbar-custom .navbar-nav {
+           align-items: center; /* Center items vertically */
+       }
+   
+       .navbar-custom .nav-item {
+               margin-right: 10px; /* Add some margin between items */
+           }
+       .navbar-custom .nav-link {
+           color: #FFF; /* Change link color */
+       }
+   
+       .navbar-custom .nav-link:hover {
+           color: #0fcfcc; /* Change link color on hover */
+       }
+       .navbar-custom .nav-link i {
+               margin-right: 5px; /* Add margin to the right of icons */
+           
+           }
+   
+       .navbar-custom .search-bar {
+           display: flex;
+       }
+   
+       .navbar-custom .form-control {
+           border: none; /* Remove input border */
+           border-radius: none; /* Remove border radius */
+           background-color: #ffffff; /* Change input background color */
+           color: #000000; /* Change input text color */
+       }
+   
+       .navbar-custom .form-control:focus {
+           box-shadow: none; /* Remove input focus box shadow */
+       }
+   
+       .navbar-custom .input-group-append button {
+           background-color: whitesmoke; /* Remove background color for search button */
+           color: #040000; /* Change button color */
+           cursor: pointer;
+       }
+   
+       .navbar-custom .input-group-append button:hover {
+           color: #FFC107; /* Change button color on hover */
+       }
+   
+       #navbar {
+           position: fixed;
+           top: 0;
+           width: 100%;
+           z-index: 1000;
+       }
+   
+       body {
+           overflow-x: hidden; /* This hides the horizontal scrollbar */
+       }
+   
+       #scrollable-content {
+           max-height: 600px; /* Adjust the height to your preference */
+           width: 100%;
+           overflow-y: auto;
+       }
+   
+       /* Add responsive styles */
+       @media (max-width: 768px) {
+           .navbar-custom .nav-item {
+               padding: 0 10px;
+           }
+       }
+            /* Style for the profile dropdown */
+            .dropdown {
+               position: relative;
+               display: inline-block;
+           }
+   
+           .dropdown-content {
+               display: none;
+               position: absolute;
+               background-color: #c58a0bb8; /* Dropdown background color */
+               min-width: 160px;
+               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+               z-index: 1;
+               border-radius: 20%;
+           }
+   
+           .dropdown:hover .dropdown-content {
+               display: block;
+           }
+   
+           .dropdown-content a {
+               color: #fff; /* Dropdown link color */
+               padding: 12px 16px;
+               text-decoration: none;
+               display: block;
+               border-radius: 40%;
+           }
+   
+           .dropdown-content a:hover {
+               background-color: #c3991ae7; /* Dropdown link background color on hover */
+               color: #0fcfcc;
+           }
+   
+           /* Style for the secondary dropdown */
+           .sub-dropdown {
+               position: relative;
+               display: inline-block;
+           }
+   
+           .sub-dropdown-content {
+               display: none;
+               position: absolute;
+               background-color: #c58a0bb8; /* Dropdown background color */
+               min-width: 160px;
+               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+               z-index: 1;
+               top: 0;
+               right: 100%;
+               border-radius: 23%;
+           }
+   
+           .sub-dropdown:hover .sub-dropdown-content {
+               display: block;
+           }
+           /* Define the keyframes for the zoom effect */
+   @keyframes zoomIn {
+       0% {
+           transform: scale(1);
+       }
+       50% {
+           transform: scale(1.1);
+       }
+       100% {
+           transform: scale(1);
+       }
+   }
+   
+   /* Apply the animation and shadow to the logo */
+   .navbar-brand img {
+       animation: zoomIn 2s infinite;
+       /* You can adjust the duration, iteration count, and other properties */
+       transition: box-shadow 0.3s ease-in-out;
+   }
+   .navbar-brand img:hover {
+       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+   }
+     .custom-background{
+       background-color: #dba212;
+     }
+   
+        /* Your existing CSS styles for menu.html */
+   
+   /* Make menu cards responsive */
+   .card {
+       margin: 10px;
+       padding: 10px;
+   }
+   
+   /* Adjust the card width for smaller screens */
+   @media (max-width: 576px) {
+       .card {
+           width: 100%;
+       }
+   }
+   
+   /* Apply a two-column layout for medium-sized screens */
+   @media (min-width: 576px) and (max-width: 992px) {
+       .card {
+           width: 48%;
+       }
+   }
+   
+   /* Apply a three-column layout for larger screens */
+   @media (min-width: 992px) {
+       .card {
+           width: 31%;
+       }
+   }
+   
+   
+    .card {
+         margin: 10px;
+         padding: 10px;
+     }
+   
+     /* Adjust the card width for smaller screens */
+     @media (max-width: 576px) {
+         .card {
+             width: 100%;
+         }
+     }
+   
+     /* Apply a two-column layout for medium-sized screens */
+     @media (min-width: 576px) and (max-width: 992px) {
+         .card {
+             width: 48%;
+         }
+     }
+   
+     /* Apply a three-column layout for larger screens */
+     @media (min-width: 992px) {
+         .card {
+             width: 31%;
+         }
+     }
+   
+     /* Additional styles for the menu cards */
+     .card {
+         transition: transform 0.3s ease; /* Adding a smooth transition on hover */
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adding a shadow effect */
+         border-radius: 8px; /* Rounded corners for the cards */
+         overflow: hidden;
+     }
+   
+     .card:hover {
+         transform: scale(1.05); /* Enlarge the card slightly on hover */
+         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+     }
+   
+     .card img {
+         width: 100%;
+         height: auto;
+     }
+   
+     .card-title {
+         font-size: 1.5em;
+         margin-top: 10px;
+     }
+   
+     .card-text {
+         color: #444;
+     }
+   
+     .card-text.text-primary {
+         font-weight: bold;
+     }
+   
+     .btn-primary {
+         background-color: #FFC107;
+         border: none;
+     }
+   
+     .btn-primary:hover {
+         background-color: #FFD54F;
+     }
+     /* Remove existing media queries for card width */
+   .card {
+       width: 100%;
+   }
+   
+   /* Additional styles for the menu cards */
+   .card {
+       transition: transform 0.3s ease;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+       border-radius: 8px;
+       overflow: hidden;
+       margin: 10px;
+       padding: 10px;
+   }
+   
+   .card:hover {
+       transform: scale(1.05);
+       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+   }
+   
+   .card img {
+       width: 100%;
+       height: auto;
+   }
+   
+   .card-title {
+       font-size: 1.5em;
+       margin-top: 10px;
+   }
+   
+   .card-text {
+       color: #444;
+   }
+   
+   .card-text.text-primary {
+       font-weight: bold;
+   }
+   
+   .btn-primary {
+       background-color: #FFC107;
+       border: none;
+   }
+   
+   .btn-primary:hover {
+       background-color: #FFD54F;
+   }
+   /* Style for the rating filter dropdown */
+   #rating-filter {
+       margin: 10px 0;
+       padding: 8px;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+       width: 100%;
+   }
+   
+   /* Adjust the appearance of the dropdown arrow */
+   #rating-filter::after {
+       content: '\25BE'; /* Unicode character for down arrow */
+       position: absolute;
+       top: 10px;
+       right: 10px;
+   }
+   
+   /* Style changes on dropdown hover and focus */
+   #rating-filter:hover,
+   #rating-filter:focus {
+       border-color: #FFC107; /* Change border color on hover or focus */
+       box-shadow: 0 0 5px rgba(255, 193, 7, 0.5); /* Add a subtle shadow */
+   }
+   
+   /* Styling the dropdown options */
+   #rating-filter option {
+       padding: 10px;
+       background-color: #fff; /* Dropdown background color */
+       color: #000; /* Dropdown text color */
+   }
+   
+   /* Change appearance of the selected option */
+   #rating-filter option:checked {
+       background-color: #FFC107; /* Selected background color */
+       color: #fff; /* Selected text color */
+   }
+     /* Apply the animation and shadow to the logo */
+     .navbar-brand img {
+           animation: zoomIn 2s infinite;
+           /* You can adjust the duration, iteration count, and other properties */
+           transition: box-shadow 0.3s ease-in-out;
+           }
+           .navbar-brand img:hover {
+           box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+           }
+           .custom-background{
+          background-color: #dba212;
+           }
+           
+            /* Navbar styling */
+            .navbar {
+           background-color: #dba212 /* Change to your desired background color */
+           }
+           .navbar-brand img {
+           border-radius: 6%;
+           padding-left: 9%;
+           }
+   
+           /* Dropdown styling */
+           .nav-item.dropdown:hover .dropdown-menu {
+           display: block;
+           }
+           .navbar-nav .nav-item {
+               padding: 15px; /* Adjust the padding as needed */
+               transition: transform 0.2s; /* Add transition for smoother animation */
+           }
+        
+           /* Style for the search input field */
+        
+           /* Style for the search icon button */
+           .input-group .btn {
+               border-radius: 0; /* Remove rounded corners */
+               background-color: #f0eaea; /* Match the background color */
+               margin: auto;
+           }
+   
+           .bgmnubtn {
+               background-image: url('/imgs/menubgimg.jpg');
+               background-size: cover;
+               background-position: center;
+               padding: 100px 0;
+               text-align: center;
+               position: relative;
+           }
+           .animated-button {
+       background-color: #ccc;
+       color: #000;
+       padding: 10px 20px;
+       border: none;
+       border-radius: 5px;
+       cursor: pointer;
+       transition: background-color 0.3s, color 0.3s, transform 0.3s;
+   }
+   
+   .animated-button:hover {
+       background-color: #555;
+       color: #fff;
+       transform: scale(1.05); /* Scale the button on hover for a slight zoom effect */
+   }
+   
+   @media (max-width: 768px) {
+       .animated-button {
+           font-size: 14px; /* Reduce the font size on smaller screens */
+       }
+   }
+       /* Footer styles */
+       footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            color: #f0c60a; /* Hover color */
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            font-size: 24px;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer .social-icons a:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        /* Additional features */
+        .address,
+        .phone,
+        .email {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            footer .social-icons a {
+                font-size: 20px;
+            }
+
+            footer a {
+                font-size: 16px;
+            }
+        }
+   
+       </style>
+  <nav class="navbar navbar-expand-lg navbar-light bg-yellow" style="background-color: #d2c5c0;">
+        <a class="navbar-brand" href="#">
+            <img src="logo.jpg" alt="Your Logo" width="100" height="100" class="rounded-3" style="margin-left: 5%; padding: 5%;">
+        </a>
+        
+        <div class="container;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #cf382ae9; padding-right: 0%;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i>Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="nearbyees.html">Nearby</a></li>
+                            <li><a class="dropdown-item" href="popular.html">Popular</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-tags me-2"></i> Offers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" href="offers.html">Discounts & Combo Offers</a></li> <!-- Fixed typo here -->
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-info-circle me-2"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html"><i class="fas fa-book-open me-2"></i> Our Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-star me-2"></i> Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-phone me-2"></i> Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i> Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <li><a class="dropdown-item" href="profile.html">View Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="background-color: #f0eaea;">
+                            <div class="input-group-append" style="background-color: #f0eaea;">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="container my-5">
+        <h2>Place Your Order</h2>
+        <div>
+            <h2>Selected Item Details</h2>
+            <img src="" id="item-image" alt="Selected Item Image">
+            <h3 id="item-title"></h3>
+            <p id="item-description"></p>
+            <p id="item-price"></p>
+          
+        </div>
+        
+        <script>
+       
+        const storedItem = JSON.parse(sessionStorage.getItem('selectedItem'));
+        if (storedItem) {
+            document.getElementById('item-image').src = storedItem.image;
+            document.getElementById('item-title').textContent = storedItem.title;
+            document.getElementById('item-description').textContent = storedItem.description;
+            document.getElementById('item-price').textContent = storedItem.price;
+  
+        }
+        </script>
+        <p>Fill out the form below to place your order:</p>
+        <form id="orderForm" action="process_order.php" method="post">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Contact Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="delivery-method">Delivery Method</label>
+                <select class="form-control" id="delivery-method" required>
+                    <option value="automatic">Automatic (Using Geolocation)</option>
+                    <option value="manual">Manual (Enter Address)</option>
+                </select>
+            </div>
+            <div class="form-group" id="manual-location" style="display: none;">
+                <label for="delivery-location">Delivery Location (Manual)</label>
+                <input type="text" class="form-control" id="delivery-location-manual" placeholder="Delivery Location">
+            </div>
+            <div class="form-group" id="automatic-location" style="display: none;">
+                <label for="delivery-location">Delivery Location (Automatic)</label>
+                <input type="text" class="form-control" id="delivery-location-automatic" placeholder="Delivery Location (Automatic)" disabled>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" id="quantity" placeholder="Quantity" required>
+            </div>
+           <button><a class="btn btn-primary" type="submit" href="payment.html">Submit Order</a></button> 
+        </form>
+    </section>
+    <!-- HTML structure for the order details page -->
+    <script>
+            // Add smooth scrolling to anchor links
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000); // You can adjust the duration (in milliseconds) to control the scroll speed
+                }
+            });
+    
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        // Function to handle animations
+        function animateSections() {
+            const sections = document.querySelectorAll('.my-5');
+    
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    section.style.opacity = 1;
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+    
+        // Add an event listener for scroll
+        window.addEventListener('scroll', animateSections);
+    
+        // Initial call to animate sections when the page loads
+        animateSections();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Toggle the navigation when the toggle icon is clicked
+            $('.navbar-toggler').click(function() {
+                $('#navbarNav').toggleClass('show');
+            });
+        });
+    </script>  
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>About Us</h4>
+                    <p>Welcome to Heritage Craft, where timeless traditions meet contemporary craftsmanship. Our curated collection celebrates the artistry and skill of artisans from around the world, offering a diverse range of handcrafted treasures that tell stories of culture, heritage, and creativity.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contact Information</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                        <li><i class="fas fa-phone"></i> 9791234293</li>
+                        <li><i class="fas fa-envelope"></i> info@heritagecraft.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Connect with Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="fab fa-facebook" style="color: rgb(0, 51, 255);"></a>
+                        <a href="#" class="fab fa-instagram" style="color: rgb(255, 30, 0);"></a>
+                        <a href="#" class="fab fa-linkedin" style="color: rgb(0, 123, 255);"></a>
+                        <a href="#" class="fab fa-pinterest" style="color: rgb(255, 0, 0);"></a>
+                        <!-- Add more social icons as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

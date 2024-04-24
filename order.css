@@ -1,0 +1,483 @@
+
+  
+
+  /* Customize the navbar toggler icon */
+  .navbar-toggler-icon::before {
+        
+         font-size: 24px;
+     }
+
+     /* Professional styling for the navigation links */
+     .navbar-custom .navbar-nav .nav-item {
+         margin: 0 10px;
+     }
+
+     .navbar-custom .navbar-nav .nav-link {
+         color: #FFF;
+     }
+
+     .navbar-custom .navbar-nav .nav-link:hover {
+         color: #0fcfcc;
+     }
+
+     /* Style the collapsed navigation when toggle icon is clicked */
+     .navbar-custom .navbar-toggler {
+         background-color: #8a8577ee;
+     }
+
+     .navbar-custom .navbar-toggler:focus {
+         outline: none;
+     }
+
+     .navbar-custom .navbar-collapse {
+         background-color: #eacc0bee;
+     }
+ /* Custom CSS for your navigation bar */
+ .navbar-custom {
+     background-color: #c3991ae7; /* Change to your desired background color */
+ }
+
+ .navbar-custom .navbar-nav {
+     align-items: center; /* Center items vertically */
+ }
+
+ .navbar-custom .nav-item {
+         margin-right: 10px; /* Add some margin between items */
+     }
+ .navbar-custom .nav-link {
+     color: #FFF; /* Change link color */
+ }
+
+ .navbar-custom .nav-link:hover {
+     color: #0fcfcc; /* Change link color on hover */
+ }
+ .navbar-custom .nav-link i {
+         margin-right: 5px; /* Add margin to the right of icons */
+     
+     }
+
+ .navbar-custom .search-bar {
+     display: flex;
+ }
+
+ .navbar-custom .form-control {
+     border: none; /* Remove input border */
+     border-radius: none; /* Remove border radius */
+     background-color: #ffffff; /* Change input background color */
+     color: #000000; /* Change input text color */
+ }
+
+ .navbar-custom .form-control:focus {
+     box-shadow: none; /* Remove input focus box shadow */
+ }
+
+ .navbar-custom .input-group-append button {
+     background-color: whitesmoke; /* Remove background color for search button */
+     color: #040000; /* Change button color */
+     cursor: pointer;
+ }
+
+ .navbar-custom .input-group-append button:hover {
+     color: #FFC107; /* Change button color on hover */
+ }
+
+ #navbar {
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1000;
+ }
+
+ body {
+     overflow-x: hidden; /* This hides the horizontal scrollbar */
+ }
+
+ #scrollable-content {
+     max-height: 600px; /* Adjust the height to your preference */
+     width: 100%;
+     overflow-y: auto;
+ }
+
+ /* Add responsive styles */
+ @media (max-width: 768px) {
+     .navbar-custom .nav-item {
+         padding: 0 10px;
+     }
+ }
+      /* Style for the profile dropdown */
+      .dropdown {
+         position: relative;
+         display: inline-block;
+     }
+
+     .dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #c58a0bb8; /* Dropdown background color */
+         min-width: 160px;
+         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+         z-index: 1;
+         border-radius: 20%;
+     }
+
+     .dropdown:hover .dropdown-content {
+         display: block;
+     }
+
+     .dropdown-content a {
+         color: #fff; /* Dropdown link color */
+         padding: 12px 16px;
+         text-decoration: none;
+         display: block;
+         border-radius: 40%;
+     }
+
+     .dropdown-content a:hover {
+         background-color: #c3991ae7; /* Dropdown link background color on hover */
+         color: #0fcfcc;
+     }
+
+     /* Style for the secondary dropdown */
+     .sub-dropdown {
+         position: relative;
+         display: inline-block;
+     }
+
+     .sub-dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #c58a0bb8; /* Dropdown background color */
+         min-width: 160px;
+         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+         z-index: 1;
+         top: 0;
+         right: 100%;
+         border-radius: 23%;
+     }
+
+     .sub-dropdown:hover .sub-dropdown-content {
+         display: block;
+     }
+     /* Define the keyframes for the zoom effect */
+@keyframes zoomIn {
+ 0% {
+     transform: scale(1);
+ }
+ 50% {
+     transform: scale(1.1);
+ }
+ 100% {
+     transform: scale(1);
+ }
+}
+
+/* Apply the animation and shadow to the logo */
+.navbar-brand img {
+ animation: zoomIn 2s infinite;
+ /* You can adjust the duration, iteration count, and other properties */
+ transition: box-shadow 0.3s ease-in-out;
+}
+.navbar-brand img:hover {
+ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+}
+.custom-background{
+ background-color: #dba212;
+}
+
+  /* Your existing CSS styles for menu.html */
+
+/* Make menu cards responsive */
+.card {
+ margin: 10px;
+ padding: 10px;
+}
+
+/* Adjust the card width for smaller screens */
+@media (max-width: 576px) {
+ .card {
+     width: 100%;
+ }
+}
+
+/* Apply a two-column layout for medium-sized screens */
+@media (min-width: 576px) and (max-width: 992px) {
+ .card {
+     width: 48%;
+ }
+}
+
+/* Apply a three-column layout for larger screens */
+@media (min-width: 992px) {
+ .card {
+     width: 31%;
+ }
+}
+
+
+.card {
+   margin: 10px;
+   padding: 10px;
+}
+
+/* Adjust the card width for smaller screens */
+@media (max-width: 576px) {
+   .card {
+       width: 100%;
+   }
+}
+
+/* Apply a two-column layout for medium-sized screens */
+@media (min-width: 576px) and (max-width: 992px) {
+   .card {
+       width: 48%;
+   }
+}
+
+/* Apply a three-column layout for larger screens */
+@media (min-width: 992px) {
+   .card {
+       width: 31%;
+   }
+}
+
+/* Additional styles for the menu cards */
+.card {
+   transition: transform 0.3s ease; /* Adding a smooth transition on hover */
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adding a shadow effect */
+   border-radius: 8px; /* Rounded corners for the cards */
+   overflow: hidden;
+}
+
+.card:hover {
+   transform: scale(1.05); /* Enlarge the card slightly on hover */
+   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+}
+
+.card img {
+   width: 100%;
+   height: auto;
+}
+
+.card-title {
+   font-size: 1.5em;
+   margin-top: 10px;
+}
+
+.card-text {
+   color: #444;
+}
+
+.card-text.text-primary {
+   font-weight: bold;
+}
+
+.btn-primary {
+   background-color: #FFC107;
+   border: none;
+}
+
+.btn-primary:hover {
+   background-color: #FFD54F;
+}
+/* Remove existing media queries for card width */
+.card {
+ width: 100%;
+}
+
+/* Additional styles for the menu cards */
+.card {
+ transition: transform 0.3s ease;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+ border-radius: 8px;
+ overflow: hidden;
+ margin: 10px;
+ padding: 10px;
+}
+
+.card:hover {
+ transform: scale(1.05);
+ box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+ width: 100%;
+ height: auto;
+}
+
+.card-title {
+ font-size: 1.5em;
+ margin-top: 10px;
+}
+
+.card-text {
+ color: #444;
+}
+
+.card-text.text-primary {
+ font-weight: bold;
+}
+
+.btn-primary {
+ background-color: #FFC107;
+ border: none;
+}
+
+.btn-primary:hover {
+ background-color: #FFD54F;
+}
+/* Style for the rating filter dropdown */
+#rating-filter {
+ margin: 10px 0;
+ padding: 8px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ width: 100%;
+}
+
+/* Adjust the appearance of the dropdown arrow */
+#rating-filter::after {
+ content: '\25BE'; /* Unicode character for down arrow */
+ position: absolute;
+ top: 10px;
+ right: 10px;
+}
+
+/* Style changes on dropdown hover and focus */
+#rating-filter:hover,
+#rating-filter:focus {
+ border-color: #FFC107; /* Change border color on hover or focus */
+ box-shadow: 0 0 5px rgba(255, 193, 7, 0.5); /* Add a subtle shadow */
+}
+
+/* Styling the dropdown options */
+#rating-filter option {
+ padding: 10px;
+ background-color: #fff; /* Dropdown background color */
+ color: #000; /* Dropdown text color */
+}
+
+/* Change appearance of the selected option */
+#rating-filter option:checked {
+ background-color: #FFC107; /* Selected background color */
+ color: #fff; /* Selected text color */
+}
+/* Apply the animation and shadow to the logo */
+.navbar-brand img {
+     animation: zoomIn 2s infinite;
+     /* You can adjust the duration, iteration count, and other properties */
+     transition: box-shadow 0.3s ease-in-out;
+     }
+     .navbar-brand img:hover {
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+     }
+     .custom-background{
+    background-color: #dba212;
+     }
+     
+      /* Navbar styling */
+      .navbar {
+     background-color: #dba212 /* Change to your desired background color */
+     }
+     .navbar-brand img {
+     border-radius: 6%;
+     padding-left: 9%;
+     }
+
+     /* Dropdown styling */
+     .nav-item.dropdown:hover .dropdown-menu {
+     display: block;
+     }
+     .navbar-nav .nav-item {
+         padding: 15px; /* Adjust the padding as needed */
+         transition: transform 0.2s; /* Add transition for smoother animation */
+     }
+  
+     /* Style for the search input field */
+  
+     /* Style for the search icon button */
+     .input-group .btn {
+         border-radius: 0; /* Remove rounded corners */
+         background-color: #f0eaea; /* Match the background color */
+         margin: auto;
+     }
+
+     .bgmnubtn {
+         background-image: url('/imgs/menubgimg.jpg');
+         background-size: cover;
+         background-position: center;
+         padding: 100px 0;
+         text-align: center;
+         position: relative;
+     }
+     .animated-button {
+ background-color: #ccc;
+ color: #000;
+ padding: 10px 20px;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.animated-button:hover {
+ background-color: #555;
+ color: #fff;
+ transform: scale(1.05); /* Scale the button on hover for a slight zoom effect */
+}
+
+@media (max-width: 768px) {
+ .animated-button {
+     font-size: 14px; /* Reduce the font size on smaller screens */
+ }
+}
+ /* Footer styles */
+ footer {
+      background-color: #222;
+      color: #fff;
+      padding: 20px 0;
+  }
+
+  footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 18px;
+  }
+
+  footer a:hover {
+      color: #f0c60a; /* Hover color */
+  }
+
+  footer p {
+      margin-bottom: 10px;
+  }
+
+  footer .social-icons a {
+      font-size: 24px;
+  }
+
+  footer .social-icons a:hover {
+      transform: scale(1.2);
+  }
+
+  footer .social-icons a:not(:last-child) {
+      margin-right: 10px;
+  }
+
+  /* Additional features */
+  .address,
+  .phone,
+  .email {
+      margin-bottom: 5px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      footer .social-icons a {
+          font-size: 20px;
+      }
+
+      footer a {
+          font-size: 16px;
+      }
+  }
